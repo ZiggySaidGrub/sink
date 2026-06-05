@@ -21,10 +21,36 @@
                 position: absolute;
             }
 
+            #squarediv {
+                width: 110%;
+                height: 100%;
+                position: absolute;
+                padding: 0px;
+                margin: 0px;
+            }
+
+            .row {
+                display: flex;
+                flex-wrap: wrap;
+                padding: 0 0px;
+            }
+
+            .column {
+                flex: 25%;
+                max-width: 25%;
+                padding: 0 0px;
+            }
+
+            .flex-item {
+                flex: 1;
+            }
+
             .path {
                 background-color: #190C1F;
                 position: absolute;
+            }
 
+            :root {
                 --path-size: 150px;
             }
 
@@ -43,6 +69,7 @@
     </head>
     <body>
         <div id="bgdiv"></div>
+        <div id="squarediv" class="row"></div>
         <div id="vertical-path" class="path"></div>
         <div id="horizontal-path" class="path"></div>
         <script src="tower.js"></script>
