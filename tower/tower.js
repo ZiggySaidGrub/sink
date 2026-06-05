@@ -34,7 +34,7 @@ dirs.forEach((dir, idx) => {
         for (let i = 0; i < guess.length; i++) {
             if (i >= solution.length) break;
             if (guess[i] != solution[i]) {
-                guess = [];
+                guess = [idx];
                 break;
             }
 
