@@ -17,3 +17,12 @@ for (let i = 0; i < squarediv.clientHeight; i += 64) {
         squarediv.appendChild(img);
     }
 }
+
+const dirs = ["up", "right", "down", "left"];
+
+dirs.forEach(dir => {
+    let el = document.getElementById(dir);
+    el.addEventListener("click", (e) => {
+        
+    });
+});

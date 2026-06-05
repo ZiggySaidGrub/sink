@@ -13,7 +13,7 @@
             }
 
             #bgdiv {
-                background-image: url("start_sky.png");
+                background-image: url("codebg.png");
                 background-repeat: repeat;
                 background-size:50%;
                 width: 200%;
@@ -33,6 +33,7 @@
                 display: flex;
                 flex-wrap: wrap;
                 padding: 0 0px;
+                justify-content: space-evenly;
             }
 
             .column {
@@ -65,6 +66,47 @@
                 height: var(--path-size);
                 top: calc(50% - var(--path-size) / 2);
             }
+
+            .tower-button {
+                position: absolute;
+                color: transparent;
+            }
+
+            .tower-button:hover {
+                cursor: pointer;
+            }
+
+            #up {
+                width: var(--path-size);
+                height: 20%;
+                left: calc(50% - var(--path-size) / 2);
+            }
+
+            #right {
+                width: 10%;
+                height: var(--path-size);
+                top: calc(50% - var(--path-size) / 2);
+                right: 0px;
+            }
+
+            #down {
+                width: var(--path-size);
+                height: 20%;
+                left: calc(50% - var(--path-size) / 2);
+                bottom: 0px;
+            }
+
+            #left {
+                width: 10%;
+                height: var(--path-size);
+                top: calc(50% - var(--path-size) / 2);
+            }
+
+            .bar {
+                position: absolute;
+                height: 100%;
+                width: 5%;
+            }
         </style>
     </head>
     <body>
@@ -72,6 +114,20 @@
         <div id="squarediv" class="row"></div>
         <div id="vertical-path" class="path"></div>
         <div id="horizontal-path" class="path"></div>
+
+        <img src="blue_mineshaft_crossbars.png" class="bar" style="left: 15%; bottom: 0%;">
+        <img src="blue_mineshaft_crossbars.png" class="bar" style="left: 30%; bottom: 0%;">
+        <img src="blue_mineshaft_crossbars.png" class="bar" style="left: 35%; bottom: 0%;">
+        <img src="blue_mineshaft_crossbars.png" class="bar" style="left: 45%; bottom: 0%;">
+        <img src="blue_mineshaft_crossbars.png" class="bar" style="left: 60%; bottom: 0%;">
+        <img src="blue_mineshaft_crossbars.png" class="bar" style="left: 80%; bottom: 0%;">
+
+        <!-- buttons -->
+        <div id="up" class="tower-button"></div>
+        <div id="right" class="tower-button"></div>
+        <div id="down" class="tower-button"></div>
+        <div id="left" class="tower-button"></div>
+
         <script src="tower.js"></script>
     </body>
 </html>
