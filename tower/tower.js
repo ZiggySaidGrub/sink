@@ -44,8 +44,6 @@ dirs.forEach((dir, idx) => {
         }
         can_move = false;
         fadeIn();
-        console.log(guess);
-        console.log(solution);
     });
 });
 
