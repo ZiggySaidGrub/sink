@@ -58,17 +58,14 @@ async function fadeIn() {
     fader.style.opacity = `${parseFloat(fader.style.opacity) + 0.01}`;
     await new Promise((resolve) => setTimeout(resolve, fadeTime));
     if (parseFloat(fader.style.opacity) < 1) fadeIn();
-    else fadeOut();
+    else if (won) {
+        window.location.replace("https://github.com/ZiggySaidGrub/sink");
+    } else fadeOut();
 }
 
 async function fadeOut() {
     fader.style.opacity = `${parseFloat(fader.style.opacity) - 0.01}`;
     await new Promise((resolve) => setTimeout(resolve, fadeTime));
     if (parseFloat(fader.style.opacity) > 0) fadeOut();
-    else {
-        if (won) {
-            window.location.replace("https://github.com/ZiggySaidGrub/sink");
-        }
-        can_move = true;
-    }
+    else can_move = true;
 }
