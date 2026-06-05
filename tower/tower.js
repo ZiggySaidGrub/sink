@@ -12,17 +12,65 @@ for (let i = 0; i < squarediv.clientHeight; i += 64) {
         let img = document.createElement("img");
         img.src = `square${Math.floor(Math.random() * 3)}.png`;
         img.width = "64";
-        img.height = "64"
+        img.height = "64";
         img.classList.add("flex-item");
         squarediv.appendChild(img);
     }
 }
 
 const dirs = ["up", "right", "down", "left"];
+const solution = [2, 3, 0, 1, 3, 0, 2, 3, 0, 1];
+let guess = [];
 
-dirs.forEach(dir => {
+let can_move = false;
+let won = false;
+
+dirs.forEach((dir, idx) => {
     let el = document.getElementById(dir);
     el.addEventListener("click", (e) => {
-        
+        if (!can_move) return;
+
+        guess.push(idx);
+        for (let i = 0; i < guess.length; i++) {
+            if (i >= solution.length) break;
+            if (guess[i] != solution[i]) {
+                guess = [];
+                break;
+            }
+
+            if (i == solution.length - 1) {
+                won = true;
+            }
+        }
+        can_move = false;
+        fadeIn();
+        console.log(guess);
+        console.log(solution);
     });
 });
+
+can_move = true;
+
+let fader = document.getElementById("fader");
+fader.style.opacity = "0";
+
+const fadeTime = 4;
+
+async function fadeIn() {
+    fader.style.opacity = `${parseFloat(fader.style.opacity) + 0.01}`;
+    await new Promise((resolve) => setTimeout(resolve, fadeTime));
+    if (parseFloat(fader.style.opacity) < 1) fadeIn();
+    else fadeOut();
+}
+
+async function fadeOut() {
+    fader.style.opacity = `${parseFloat(fader.style.opacity) - 0.01}`;
+    await new Promise((resolve) => setTimeout(resolve, fadeTime));
+    if (parseFloat(fader.style.opacity) > 0) fadeOut();
+    else {
+        if (won) {
+            window.location.replace("https://github.com/ZiggySaidGrub/sink");
+        }
+        can_move = true;
+    }
+}
