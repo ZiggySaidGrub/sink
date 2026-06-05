@@ -59,7 +59,7 @@ async function fadeIn() {
     await new Promise((resolve) => setTimeout(resolve, fadeTime));
     if (parseFloat(fader.style.opacity) < 1) fadeIn();
     else if (won) {
-        window.location.href = "https://github.com/ZiggySaidGrub/sink";
+        window.location.href = "https://sink.smots.horse/tower/XsVOjqJVVAQDicdQ/";
     } else fadeOut();
 }
 
