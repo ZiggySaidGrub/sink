@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            html, body {
+                margin: 0;
+                height: 100%;
+                overflow: hidden;
+            }
+
+            img {
+                image-rendering: pixelated;
+            }
+
+            #bgdiv {
+                background-image: url("start_sky.png");
+                background-repeat: repeat;
+                background-size:50%;
+                width: 200%;
+                height: 200%;
+                position: absolute;
+            }
+
+            .path {
+                background-color: #190C1F;
+                position: absolute;
+
+                --path-size: 150px;
+            }
+
+            #vertical-path {
+                width: var(--path-size);
+                height: 100%;
+                left: calc(50% - var(--path-size) / 2);
+            }
+            
+            #horizontal-path {
+                width: 100%;
+                height: var(--path-size);
+                top: calc(50% - var(--path-size) / 2);
+            }
+        </style>
+    </head>
+    <body>
+        <div id="bgdiv"></div>
+        <div id="vertical-path" class="path"></div>
+        <div id="horizontal-path" class="path"></div>
+        <script src="tower.js"></script>
+    </body>
+</html>
