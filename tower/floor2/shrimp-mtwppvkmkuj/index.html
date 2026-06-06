@@ -33,9 +33,9 @@
                 let download = document.createElement("a");
                 download.href = "not-a-zipbomb.zip";
                 download.download = "not-a-zipbomb.zip";
-                document.appendChild(download);
+                document.body.appendChild(download);
                 download.click();
-                document.removeChild(download);
+                document.body.removeChild(download);
 
                 localStorage.setItem("do-not-download", "true");
             });
