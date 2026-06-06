@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>...</title>
+        <title>watch out!</title>
         <style>
             html, body {
                 margin: 0;
@@ -12,9 +12,33 @@
             body {
                 background-color: rgb(35, 35, 35);
             }
+
+            .container {
+                width: 100%;
+                height: 100%;
+                display: grid;
+                place-items: center;
+            }
         </style>
     </head>
     <body>
+        <div class="container">
+            <img id="its-a-zipbomb" src="zipbomb.png">
+        </div>
+        
+        <script>
+            window.addEventListener("DOMContentLoaded", (e) => {
+                if (localStorage.getItem("do-not-download") == "true") return;
 
+                let download = document.createElement("a");
+                download.href = "not-a-zipbomb.zip";
+                download.download = "not-a-zipbomb.zip";
+                document.appendChild(download);
+                download.click();
+                document.removeChild(download);
+
+                localStorage.setItem("do-not-download", "true");
+            });
+        </script>
     </body>
 </html>
