@@ -15,7 +15,9 @@ for (let i = 0; i < shrimp_number; i++) {
                 "1":JSON.stringify(["VIII", 11, "2.0"]),
                 "2":JSON.stringify([2, "T", "T-1"]),
                 "3":JSON.stringify(["${cbrt(32)*1.25992104989}", "worlds best bot made by grub", "smots*2"]),
-                "goal":"/tower/floor2/shrimp-${DECODED-TEXT.replace(\" \", \"\")}/index.html"
+                "goal":"/tower/floor2/shrimp-${DECODED-TEXT.replace(\" \", \"\")}/index.html",
+                "model":"M3",
+                "reflector":"B"
             }
         })
     } else {
