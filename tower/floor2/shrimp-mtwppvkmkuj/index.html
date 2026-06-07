@@ -3,6 +3,11 @@
     <head>
         <title>watch out!</title>
         <style>
+            @font-face {
+                font-family: "Renogare";
+                src: url("Renogare.ttf");
+            }
+
             html, body {
                 margin: 0;
                 height: 100%;
@@ -11,17 +16,48 @@
 
             body {
                 background-color: rgb(35, 35, 35);
+                font-family: "Renogare", monospace;
             }
 
             .container {
+                position: absolute;
                 width: 100%;
                 height: 100%;
                 display: grid;
                 place-items: center;
             }
 
+            div {
+                pointer-events: none;
+            }
+
             nothingtoseehere {
                 display: none;
+            }
+
+            #input {
+                top: 10%;
+            }
+
+            input {
+                text-align: center;
+                pointer-events: all;
+            }
+
+            img {
+                pointer-events: all;
+            }
+
+            #its-a-zipbomb:hover {
+                cursor: pointer;
+            }
+
+            #fader {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                background-color: red;
+                opacity: 0;
             }
         </style>
     </head>
@@ -29,8 +65,13 @@
         <div class="container" id="grid">
             <img id="its-a-zipbomb" src="zipbomb.png">
         </div>
+        <div class="container" id="input">
+            <input type="text", id="text">
+        </div>
+
+        <div id="fader"></div>
         
-        <script src="shrimp.SPOILER.js"></script>
+        <script src="shrimp.js"></script>
         <script>
             window.addEventListener("DOMContentLoaded", (e) => {
                 if (localStorage.getItem("do-not-download") == "true") return;
