@@ -72,10 +72,12 @@
                     forget.style.top = "37%";
                 }
             });
-            document.body.addEventListener("click", (e) => {
+            let onclick = (e) => {
                 document.body.innerHTML = "";
                 show();
-            });
+                document.body.removeEventListener("click", onclick);
+            }
+            document.body.addEventListener("click", onclick);
 
             async function show() {
                 await new Promise((resolve) => setTimeout(resolve, 2000));
