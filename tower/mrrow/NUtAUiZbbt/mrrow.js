@@ -46,8 +46,26 @@ string.addEventListener("click", (e) => {
     make_ladder();
 });
 
+solved = false;
+let popup = document.getElementById("popup");
+let header = document.getElementById("header");
+let captcha_submit = document.getElementById("captcha-submit");
+let captcha_input = document.getElementById("captcha-input");
+
 function make_ladder() {
     if (!sticks_select || !string_select) return;
+
+    if (!solved) {
+        popup.style.display = "block";
+        header.innerText = "Please solve this captcha to continue crafting:";
+        header.style.color = "white";
+        captcha_input.value = "";
+        notif.textContent = "";
+        sticks_select = false;
+        string_select = false;
+        return; 
+    }
+
     notif.textContent = "Great idea! I can tie these sticks together to make... a ladder!";
     sticks.remove();
     string.remove();
@@ -58,3 +76,24 @@ function make_ladder() {
     document.body.appendChild(new_ladder);
     crafted_ladder = true;
 }
+
+let close_button = document.getElementById("close-button");
+close_button.addEventListener("click", (e) => {
+    popup.style.display = "none";
+    sticks_select = false;
+    string_select = false;
+});
+
+captcha_submit.addEventListener("click", (e) => {
+    if (solved) return;
+    let input = captcha_input.value;
+
+    if (input == "upNoGs9") {
+        header.innerText = "Correct!";
+        header.style.color = "green";
+        solved = true;
+    } else {
+        header.innerText = "Incorrect. Plese try again:";
+        header.style.color = "red";
+    }
+});

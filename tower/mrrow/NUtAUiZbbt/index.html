@@ -78,6 +78,34 @@
                 width: 7%;
                 rotate: -16deg;
             }
+
+            #popup {
+                background-color: black;
+                outline: solid;
+                border-radius: 20px;
+                width: 40%;
+                height: 25%;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                display: none;
+                text-align: center;
+            }
+
+            #smots {
+                width: 50%;
+                height: 50%;
+            }
+
+            #close-button {
+                position: absolute;
+                right: 5%;
+            }
+
+            #close-button:hover, #captcha-submit:hover {
+                cursor: pointer;
+            }
         </style>
     </head>
     <body>
@@ -87,6 +115,16 @@
         <img src="ladder.png" id="ladder" class="selectDisable">
         <img src="sticks.png" id="sticks" class="selectDisable">
         <img src="string.png" id="string" class="selectDisable">
+
+        <div id="popup">
+            <p id="close-button" class="selectDisable">X</p>
+
+            <p><span id="header">Please solve this captcha to continue crafting:</span><br><br>
+            Type the characters you see in the picture.<br><br>
+            <img src="smots.bmp" id="smots"><br>
+            The picture contains 8 springs.<br><br>
+            <input type="text" id="captcha-input"><button id="captcha-submit">Submit</button></p>
+        </div>
 
         <script src="mrrow.SPOILER.js"></script>
     </body>
