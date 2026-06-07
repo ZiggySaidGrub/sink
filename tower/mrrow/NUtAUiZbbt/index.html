@@ -3,18 +3,91 @@
     <head>
         <title>...</title>
         <style>
+            @font-face {
+                font-family: "Renogare";
+                src: url("Renogare.ttf");
+            }
+
             html, body {
                 margin: 0;
                 height: 100%;
+                width: 100%;
                 overflow: hidden;
             }
 
             body {
-                background-color: rgb(35, 35, 35);
+                background-color: black;
+                font-family: "Renogare", monospace;
+                color: white;
+            }
+
+            .selectDisable {
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -o-user-select: none;
+                user-select: none;
+            }
+
+            #sink {
+                display: block;
+                margin: auto;
+                width: 10%;
+                image-rendering: pixelated;
+                position: relative;
+                top: 4%;
+            }
+
+            #sink:hover, #ladder:hover, #sticks:hover, #string:hover {
+                cursor: pointer;
+            }
+
+            #notif {
+                text-align: center;
+                position: relative;
+                top: 5%;
+            }
+
+            #ladder {
+                position: absolute;
+                left: 43%;
+                top: 50%;
+                width: 10%;
+                rotate: -37deg;
+            }
+            #new-ladder {
+                position: absolute;
+                left: 51%;
+                top: 35%;
+                width: 10%;
+                rotate: -60deg;
+            }
+
+            #sticks {
+                position: absolute;
+                left: 50%;
+                top: 43%;
+                width: 7%;
+                rotate: 36deg;
+            }
+
+            #string {
+                position: absolute;
+                left: 55%;
+                top: 60%;
+                width: 7%;
+                rotate: -16deg;
             }
         </style>
     </head>
     <body>
+        <img src="sink.png" id="sink" draggable="false" class="selectDisable">
+        <p id="notif" class="selectDisable"></p>
 
+        <img src="ladder.png" id="ladder" class="selectDisable">
+        <img src="sticks.png" id="sticks" class="selectDisable">
+        <img src="string.png" id="string" class="selectDisable">
+
+        <script src="mrrow.js"></script>
     </body>
 </html>
