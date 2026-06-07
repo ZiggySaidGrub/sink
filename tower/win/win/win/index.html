@@ -3,6 +3,11 @@
     <head>
         <title>...</title>
         <style>
+            @font-face {
+                font-family: "Renogare";
+                src: url("Renogare.ttf");
+            }
+
             html, body {
                 margin: 0;
                 height: 100%;
@@ -10,11 +15,74 @@
             }
 
             body {
-                background-color: rgb(35, 35, 35);
+                background-color: black;
+                font-family: "Renogare", monospace;
+                font-size: xx-large;
+                color: white;
+            }
+
+            .container {
+                width: 100%;
+                height: 100%;
+                display: grid;
+                place-items: center;
+            }
+
+            img {
+                height: 100%;
+                image-rendering: pixelated;
+            }
+
+            #water {
+                position: absolute;
+                left: 20%;
+                top:36%
+            }
+            #forget {
+                position: absolute;
+                left: 65%;
+                top:37%;
+                color: #6e518e;
             }
         </style>
     </head>
     <body>
+        <div class="container">
+            <img src="choice1.png" id="choice">
+            <p id="water">Water the plant</p>
+            <p id="forget">Forget about it</p>
+        </div>
+        <script>
+            let choice = document.getElementById("choice");
+            let water = document.getElementById("water");
+            let forget = document.getElementById("forget");
+            document.body.addEventListener("mousemove", (e) => {
+                if (e.pageX > window.innerWidth / 2) {
+                    choice.src = "choice2.png";
+                    water.style.color = "#6e518e";
+                    water.style.top = "37%";
+                    forget.style.color = "#ffffff";
+                    forget.style.top = "36%";
+                }
+                else {
+                    choice.src = "choice1.png";
+                    water.style.color = "#ffffff";
+                    water.style.top = "36%";
+                    forget.style.color = "#6e518e";
+                    forget.style.top = "37%";
+                }
+            });
+            document.body.addEventListener("click", (e) => {
+                document.body.innerHTML = "";
+                show();
+            });
 
+            async function show() {
+                await new Promise((resolve) => setTimeout(resolve, 2000));
+                document.body.innerHTML = "<div class=\"container\"><p>gg</p></div>";
+                await new Promise((resolve) => setTimeout(resolve, 2000));
+                document.body.innerHTML = "<div class=\"container\"><p>thank you for playing this</p></div>";
+            }
+        </script>
     </body>
 </html>
